@@ -34,7 +34,7 @@ def primefact(n,primes):
                 i= i+1
         else:
             break
-    print factors
+    return factors
 #checks if the so far factors add to number factorizing
 def checkdprime(l,ck):
     tl = 1
@@ -74,9 +74,27 @@ def checkpalin(n):
     if(l != n):
         return False
     return True
+#problem 5
+def problem5():
+    n = prime(20)
+    total = []
+    for i in range(20,1,-1):
+        check = primefact(i,n)
+        print check
+        for j in check:
+            if check.count(j) > total.count(j):
+                dff =  check.count(j) - total.count(j)
+                for d in range(dff):
+                    total.append(j)
+    return reduce(lambda x,y: x*y, total)
+
+                    
 def main():
     #print checkpalin(9119)
-    palindrome()
+    #palindrome()
+    #n = prime(21)
+    #print primefact(20,n)
+    print problem5()
 if __name__ == '__main__':
     main()
 
